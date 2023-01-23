@@ -1,9 +1,11 @@
 # Exp-6-Synchornous-counters - up counter and down counter 
-### AIM: To implement 4 bit up and down counters and validate  functionality.
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
-### THEORY 
-
+## AIM: 
+To implement 4 bit up and down counters and validate  functionality.
+## HARDWARE REQUIRED:  
+PC, Cyclone II , USB flasher
+## SOFTWARE REQUIRED:  
+ Quartus prime
+## THEORY: 
 ## UP COUNTER 
 The counter is a digital sequential circuit and here it is a 4 bit counter, which simply means it can count from 0 to 15 and vice versa based upon the direction of counting (up/down). 
 
@@ -46,43 +48,91 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
+1. Open a new project using Quartus II.
+2. Declare the inputs and outputs inside module projname().
+3. Set the reset value using register.
+4. Use commands like begin and end to stimulate the counter.
+5. For Up counter increment the count and for Down counter decrement the count.
+6. End the verilog programming.
 
 
 
 ### PROGRAM 
-/*
+```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: SARGURU K 
+RegisterNumber:  22002828
+
+UP COUNTER :
+
+
+module de06(input clk,input reset,output[0:3]counter);
+reg[0:3]counter_up;
+always@(posedge clk or posedge reset)
+begin
+if (reset)
+counter_up<=4'd0;
+else 
+counter_up<=counter_up+4'd1;
+end
+assign counter=counter_up;
+endmodule
+```
+```
+
+DOWN COUNTER :
+
+
+module de06(input clk,input reset,output[0:3]counter);
+reg[0:3]counter_down;
+always@(posedge clk or posedge reset)
+begin
+if (reset)
+counter_down<=4'd0;
+else 
+counter_down<=counter_down-4'd1;
+end
+assign counter=counter_down;
+endmodule
+```
 
 
 
 
 
 
-### RTL LOGIC UP COUNTER AND DOWN COUNTER  
+
+## RTL LOGIC UP COUNTER 
+
+![rtl](./u1.png)
+
+
+## TIMING DIGRAMS FOR UP COUNTER  
+
+![timing](./u2.png)
+
+## TRUTH TABLE FOR UP COUNTER
+
+![TRUTH](./u3.png)
+
+## RTL LOGIC DOWN COUNTER 
+
+![rtl](./d1.png)
+
+
+## TIMING DIGRAMS FOR DOWN COUNTER  
+
+![timing](./d2.png)
 
 
 
 
+## TRUTH TABLE FOR DOWN COUNTER
+
+![TRUTH](./d3.png)
 
 
+## RESULTS :
+Hence the Four bit Up counter and Down counter is implemented successfully and its functionality is validated.
 
 
-
-### TIMING DIGRAMS FOR COUNTER  
-
-
-
-
-
-### TRUTH TABLE 
-
-
-
-
-
-
-### RESULTS 
